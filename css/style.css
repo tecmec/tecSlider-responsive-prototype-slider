@@ -1,0 +1,42 @@
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+#slider-container{
+    min-width: 150px;
+    max-width: 500px;
+    position: relative;
+}
+#slider {
+    position: relative;
+    zoom: 1;
+    padding: 10px;
+    background: #ffffff;
+}
+#slide-box li img{
+    width: 100%;
+    display: block
+}
+html[xmlns] #slide-box { display: block; }
+* html #slide-box { height: 1%; }
+.sbox {
+    float: left;
+    position: absolute;
+    background: #fff;
+}
+#lcontrol,
+#rcontrol{
+    width: 32px;
+    height: 32px;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=0);
+    -moz-opacity: 0;
+    -khtml-opacity: 0;
+    opacity: 0;
+    background: #fff;
+    cursor: pointer;
+    position: absolute;
+}
+#lcontrol{background:url(https://cdn1.iconfinder.com/data/icons/32pxmania/buttons_23.png);}
+#rcontrol{background:url(https://cdn1.iconfinder.com/data/icons/32pxmania/buttons_22.png);}

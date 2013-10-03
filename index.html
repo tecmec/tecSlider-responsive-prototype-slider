@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>tecSlider - A responsive prototype slider</title>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/prototype/1.7.1.0/prototype.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/scriptaculous/1.9.0/scriptaculous.js"></script>
+    <script src="js/tecSlider.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+</head>
+<body>
+<div id="slider-container">
+    <div id="slider">
+        <ul id="slide-box">
+            <li class="sbox" id="sb1"><img src="http://farm4.staticflickr.com/3389/3343776260_1f327407c0.jpg" /></li>
+            <li class="sbox" id="sb2"><img src="http://farm3.staticflickr.com/2658/4130990745_b3182f920a.jpg" /></li>
+            <li class="sbox" id="sb3"><img src="http://farm7.staticflickr.com/6068/6113463789_67751abb8d.jpg" /></li>
+        </ul>
+        <div id="lcontrol"></div>
+        <div id="rcontrol"></div>
+    </div>
+</div>
+<script>
+    document.observe("dom:loaded", function() {
+        tecSlider.slidePages($('slide-box'), {
+            duration: 3,
+            interval: 9000
+        });
+    });
+</script>
+</body>
+</html>
