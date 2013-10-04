@@ -1,4 +1,7 @@
-tecSlider-responsive-prototype-slider
-=====================================
+tecSlider - a responsive prototype slider
+==========================================
 
-Responsive Prototype Slider
+Playground: http://jsfiddle.net/seotec/4Bp3N/35/
+Live Demo: http://jsfiddle.net/seotec/4Bp3N/35/embedded/result/
+
+####Feel free to fork!
