@@ -72,7 +72,7 @@ var tecSlider = {
 
             // prevent mouseenter on controls
             var e = event.fromElement;
-            console.log(e);
+
             if(e !== null && e !== undefined){
                 if (e.parentNode == this.parentNode) {
                     return;
@@ -81,6 +81,7 @@ var tecSlider = {
 
             // stop animation
             clearInterval(sliderObj.intervalID);
+
             // show controls
             sliderObj.showControls();
 
@@ -105,7 +106,8 @@ var tecSlider = {
                     };
                 })(sliderObj),
                 sliderObj.interval);
-            // show controls
+
+            // hide controls
             sliderObj.hideControls();
 
         });
@@ -144,8 +146,7 @@ var tecSlider = {
     preparePages: function (elems) {
         elems.each(function (elem, i) {
             var s = i > 0 ? elem.setStyle({
-                opacity: '0',
-                filter: 'alpha(opacity = 50)'
+                opacity: '0'
             }) : null;
         });
     },
