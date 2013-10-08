@@ -23,7 +23,9 @@
     document.observe("dom:loaded", function() {
         tecSlider.slidePages($('slide-box'), {
             duration: 3,
-            interval: 9000
+            interval: 9000,
+            imageTransition: 'linear',
+            controlTransition: 'wobble'
         });
     });
 </script>

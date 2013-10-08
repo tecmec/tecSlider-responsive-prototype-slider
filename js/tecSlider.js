@@ -5,7 +5,21 @@ var tecSlider = {
     duration: 2, // fade duration between images
     interval: 3000, // milliseconds image is visible
     controlOpacity: 0.7, // opacity of control buttons
-    controlFaceDuration: 0.5, // controll btn fadeout/in time
+    controlFaceDuration: 0.5, // control btn fadeout/in time
+    transitionType: 'fade', // fade | slide, default transition type between images
+    transitionEffect: { // available prototype fadeout/in effects
+        'sinoidal' : Effect.Transitions.sinoidal,
+        'linear' : Effect.Transitions.linear,
+        'reverse': Effect.Transitions.reverse,
+        'wobble': Effect.Transitions.wobble,
+        'flicker': Effect.Transitions.flicker,
+        'pulse': Effect.Transitions.pulse,
+        'spring': Effect.Transitions.spring,
+        'none': Effect.Transitions.none,
+        'full': Effect.Transitions.full
+    },
+    imageTransition: 'linear',
+    controlTransition: 'linear',
     getCurrentElem: function(){
 
         // get active page
@@ -44,6 +58,14 @@ var tecSlider = {
                 sliderObj.duration = parseInt(pair.value,10);
             } else if (String(pair.key) == "interval") {
                 sliderObj.interval = parseInt(pair.value,10);
+            } else if (String(pair.key) == 'imageTransition'){
+                if(sliderObj.transitionEffect.hasOwnProperty(String(pair.value))){
+                    sliderObj.imageTransition = String(pair.value);
+                }
+            } else if (String(pair.key) == 'controlTransition'){
+                if(sliderObj.transitionEffect.hasOwnProperty(String(pair.value))){
+                    sliderObj.controlTransition = String(pair.value);
+                }
             } else {
                 // throw error if option not part of object
                 throw {
@@ -132,16 +154,17 @@ var tecSlider = {
         rcon.setStyle({marginTop:posY+'px',marginLeft: posX + 'px'});
 
     },
-    fadeObj: function(obj,from,to,duration){
-        new Effect.Opacity(obj, {from: from,to: to,duration: duration});
+    fadeObj: function(obj,from,to,duration,trans){
+        var tEff = this.transitionEffect[trans];
+        new Effect.Opacity(obj, {from: from, to: to, duration: duration, transition: tEff});
     },
     showControls: function(){
-        this.fadeObj($('lcontrol'),0,this.controlOpacity,this.controlFaceDuration);
-        this.fadeObj($('rcontrol'),0,this.controlOpacity,this.controlFaceDuration);
+        this.fadeObj($('lcontrol'),0,this.controlOpacity,this.controlFaceDuration,this.controlTransition);
+        this.fadeObj($('rcontrol'),0,this.controlOpacity,this.controlFaceDuration,this.controlTransition);
     },
     hideControls: function(){
-        this.fadeObj($('lcontrol'),this.controlOpacity,0,this.controlFaceDuration);
-        this.fadeObj($('rcontrol'),this.controlOpacity,0,this.controlFaceDuration);
+        this.fadeObj($('lcontrol'),this.controlOpacity,0,this.controlFaceDuration,this.controlTransition);
+        this.fadeObj($('rcontrol'),this.controlOpacity,0,this.controlFaceDuration,this.controlTransition);
     },
     preparePages: function (elems) {
         elems.each(function (elem, i) {
@@ -159,8 +182,8 @@ var tecSlider = {
         var prevElem = currElem.previous();
 
         // animate
-        this.fadeObj(currElem,1,0,this.duration);
-        this.fadeObj(prevElem,0,1,this.duration);
+        this.fadeObj(currElem,1,0,this.duration,this.imageTransition);
+        this.fadeObj(prevElem,0,1,this.duration,this.imageTransition);
 
         // set current elem
         this.currentElem = prevElem;
