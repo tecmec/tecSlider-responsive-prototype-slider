@@ -12,9 +12,9 @@ The slider should be fast, lightweight, easy to configure and especially backwar
 For anything else watch the __issue__ and __pull request__ list.
 
 
-Playground: http://jsfiddle.net/seotec/4Bp3N/37/
+Playground: http://jsfiddle.net/seotec/4Bp3N/38/
 
-Live Demo: http://jsfiddle.net/seotec/4Bp3N/37/embedded/result/
+Live Demo: http://jsfiddle.net/seotec/4Bp3N/38/embedded/result/
 
 
 ####Feel free to fork!
